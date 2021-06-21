@@ -1,0 +1,15 @@
+.search {
+    position: relative;
+    width: 100%;
+
+    .input {
+        width: 100%;
+    }
+
+    .button {
+        padding: 7px;
+        position: absolute;
+        top: 2.5px;
+        right: 2.5px;
+    }
+}

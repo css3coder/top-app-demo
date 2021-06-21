@@ -1,0 +1,43 @@
+.button {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background .2s ease;
+
+    svg {
+        margin: auto;
+    }
+
+    &.primary {
+        background: $primary;
+
+        svg > * {
+            fill: $white;
+            transition: fill .2s ease;
+        }
+
+        &:hover {
+            background: $primary-hover;
+        }
+    }
+
+    &.white {
+        background: $white;
+
+        svg > * {
+            fill: $primary;
+            transition: fill .2s ease;
+        }
+
+        &:hover {
+            background: $primary;
+
+            svg>* {
+                fill: $white;
+            }
+        }
+    }
+}

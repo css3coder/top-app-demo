@@ -1,0 +1,331 @@
+.product {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
+
+    @media (max-width: 1349px) {
+        grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+        grid-template-areas:
+            "logo . title title title title title"
+            "logo . tags tags tags tags tags"
+            "price price price . credit . rating"
+            "priceTitle priceTitle priceTitle . creditTitle . rateTitle"
+            "hr hr hr hr hr hr hr"
+            "description description description description description description description"
+            "feature feature feature feature feature feature feature"
+            "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+            "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+            "actions actions actions actions actions actions actions";
+        ;
+    }
+
+    @media (max-width: 767px) {
+        grid-template-columns: 70px 30px 1fr;
+        grid-template-areas:
+            "logo . title"
+            "logo . tags"
+            "priceTitle priceTitle price"
+            "creditTitle creditTitle credit"
+            "rateTitle rateTitle rating"
+            "hr hr hr"
+            "description description description"
+            "feature feature feature"
+            "advBlock advBlock advBlock"
+            "hr2 hr2 hr2"
+            "actions actions actions";
+    }
+
+    @media (max-width: 413px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "title"
+            "tags"
+            "price"
+            "priceTitle"
+            "credit"
+            "creditTitle"
+            "rating"
+            "rateTitle"
+            "hr"
+            "description"
+            "feature"
+            "advBlock"
+            "hr2"
+            "actions";
+    }
+}
+
+.logo {
+    grid-column: start / logoend;
+    grid-row: 1 / span 2;
+
+    img {
+        border-radius: 5px;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: logo;
+        margin-bottom: 20px;
+    }
+}
+
+.title {
+    grid-column: titlestart / middle;
+
+    font-weight: 600;
+    font-size: 20px;
+
+    @media (max-width: 1349px) {
+        grid-area: title;
+    }
+}
+
+.tags {
+    grid-column: titlestart / middle;
+
+    margin: 10px 0 -5px;
+
+    @media (max-width: 1349px) {
+        grid-area: tags;
+        margin-bottom: 20px;
+    }
+}
+
+.price {
+    grid-column: pricestart / priceend;
+    align-self: end;
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 500;
+
+    .oldPrice {
+        padding: 5px 10px 4px;
+        margin: 0 0 0 8px;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: price;
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+}
+
+.priceTitle {
+    grid-column: pricestart / priceend;
+
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 5px;
+
+    @media (max-width: 1349px) {
+        grid-area: priceTitle;
+    }
+
+    @media (max-width: 413px) {
+        margin: 0 0 15px;
+    }
+}
+
+.credit {
+    grid-column: creditstart / creditend;
+    align-self: end;
+
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 500;
+
+    span {
+        font-size: 14px;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: credit;
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+}
+
+.creditTitle {
+    grid-column: creditstart / creditend;
+
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 5px;
+
+    @media (max-width: 1349px) {
+        grid-area: creditTitle;
+    }
+
+    @media (max-width: 413px) {
+        margin: 0 0 15px;
+    }
+}
+
+.rating {
+    grid-column: ratestart / end;
+    align-self: end;
+
+    height: 24px;
+
+    @media (max-width: 1349px) {
+        grid-area: rating;
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: 10px;
+    }
+}
+
+.rateTitle {
+    grid-column: ratestart / end;
+
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 5px;
+
+    a {
+        color: $primary;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: rateTitle;
+    }
+
+    @media (max-width: 413px) {
+        margin-top: 0;
+    }
+}
+
+.description {
+    grid-column: start / end;
+
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+    @media (max-width: 1349px) {
+        grid-area: description;
+    }
+}
+
+.hr {
+    grid-column: start / end;
+
+    border-top: 1px solid $lgray;
+    margin: 20px 0;
+
+    @media (max-width: 1349px) {
+        grid-area: hr;
+    }
+}
+
+.hr2 {
+    @media (max-width: 1349px) {
+        grid-area: hr2;
+    }
+}
+
+.features {
+    grid-column: start / middle;
+
+    padding-right: 60px;
+
+    @media (max-width: 1349px) {
+        grid-area: feature;
+        padding-right: 0;
+    }
+}
+
+.characteristics {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    h6 {
+        margin: 0;
+    }
+
+    span {
+        flex-grow: 1;
+        display: inline-block;
+        height: 15px;
+        border-bottom: 2px dotted $lgray;
+        margin: 0 10px;
+    }
+}
+
+.advBlock {
+    grid-column: middle / end;
+
+    h6 {
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: advBlock;
+        margin-top: 20px;
+    }
+}
+
+.advantages {
+    border-left: 3px solid $green;
+    padding-left: 15px;
+}
+
+.disadvantages {
+    border-left: 3px solid $red;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+.actions {
+    grid-column: start / end;
+
+    .revBtn {
+        margin-left: 20px;
+    }
+
+    @media (max-width: 1349px) {
+        grid-area: actions;
+    }
+
+    @media (max-width: 413px) {
+        .moreBtn {
+            width: 100%;
+        }
+        .revBtn {
+            width: 100%;
+            margin: 20px 0 0;
+        }
+    }
+}
+
+.revWrap {
+    overflow: hidden;
+}
+
+.reviews {
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 0 0 5px 5px;
+    margin-top: -5px;
+
+    @media (max-width: 767px) {
+        padding: 20px;
+    }
+}
