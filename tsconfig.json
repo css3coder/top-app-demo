@@ -32,5 +32,6 @@
     "@styles/*": [
         "src/styles/*"
     ]
-  }
+  },
+  "noImplicitAny": false
 }

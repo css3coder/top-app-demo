@@ -1,3 +1,3 @@
 # Учебный проект на Next.JS
 
-# Stack: React + Next.js + Hooks + SSR + CSS-Grid
+# Stack: React + Hooks + Next.js + SSR + Sass + CSS-Grid

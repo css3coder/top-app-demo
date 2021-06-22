@@ -9,9 +9,14 @@ import { ProductModel } from '../../interfaces/product.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { TopPageComponent } from '../../page-components';
 import { API } from '../../helpers/api';
+import { Error404 } from '../404';
 
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
+    if (!page || !products) {
+        return <Error404 />;
+    }
+
     return <TopPageComponent
         firstCategory={firstCategory}
         page={page}
@@ -70,7 +75,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
                 products
             }
         };
-    } catch(e) {
+    } catch (e) {
         return {
             notFound: true
         };
